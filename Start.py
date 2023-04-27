@@ -1,20 +1,17 @@
-
-
-
+from DataClass import Data
 from NotesClass import Notes
 
-date = []
-a = Notes(5, 'первая', 'это первая заметка', [2013, 4, 6, 6, 0]) #создание
-#
-a.printNotes() #Печать
 
-# list = []
-#
-# for j in range(1, 4):
-#     list.append(Notes(j, f'название {j}', f'текст {j}'))
-#
-# for i in list:
-#     i.printNotes()
 
-#a.editNote(input("Введите текст заметки")) #редактирование
-#a.printNotes() #Печать
+i = True
+data = Data()
+
+while i:
+    command = input("Введите команду: ")
+    if command == 'add':
+        data.data.append(Notes(len(data.data), input("Введите название заметки: "), input("Введите текст заметки: "), 0, 0, 0, 0, 0))
+    elif command == 'print':
+        for i in data.data:
+            i.printNotes()
+    elif command == 'save':
+        data.writeData()

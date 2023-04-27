@@ -1,21 +1,25 @@
 from datetime import datetime
 
 
-class Notes():
+class Notes:
 
-    def __init__(self, id, name, text, date):
+    def __init__(self, id, name, text, year, month, day, hour, minute):
         self.id = id
         self.name = name
         self.text = text
         self.date = [0]*5
-        if len(date) < 5:
+        if year == 0:
             self.date[0] = datetime.now().year
             self.date[1] = datetime.now().month
             self.date[2] = datetime.now().day
             self.date[3] = datetime.now().hour
             self.date[4] = datetime.now().minute
         else:
-            self.date = date
+            self.date[0] = year
+            self.date[1] = month
+            self.date[2] = day
+            self.date[3] = hour
+            self.date[4] = minute
 
     def printNotes(self):
         print(f'{self.id}\t{self.name}\n'
