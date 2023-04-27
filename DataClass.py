@@ -6,10 +6,10 @@ class Data:
     def __init__(self):
         data = open('Data.csv', 'r')
         file = data.read()
-        if len(file) < 10:
+        if len(file) < 2:
             self.data = []*1
         else:
-            list = file.split('/n')
+            list = file.split('\n')
             self.data = []
             for i in range(0, len(list)):
                 if len(list[i]) > 0:
@@ -22,3 +22,6 @@ class Data:
         for i in range(0, len(self.data)):
             data.writelines(self.data[i].toStringNotes(i))
         data.close()
+
+    def delNotes(self, id):
+        del self.data[id]
