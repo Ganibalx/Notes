@@ -25,3 +25,15 @@ class Data:
 
     def delNotes(self, id):
         del self.data[id]
+        for i in range(0, len(self.data)):
+            self.data[i].setId(i)
+
+    def sortAlg(self):
+        for i in range(0, len(self.data)-1):
+            for j in range(i+1, len(self.data)):
+                if int(self.data[i].dataConvert()) > int(self.data[j].dataConvert()):
+                    self.data[i], self.data[j] = self.data[j], self.data[i]
+        for i in range(0, len(self.data)):
+            self.data[i].setId(i)
+
+

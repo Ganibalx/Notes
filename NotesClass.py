@@ -37,3 +37,15 @@ class Notes:
         self.date[3] = datetime.now().hour
         self.date[4] = datetime.now().minute
 
+    def setId(self, id):
+        self.id = id
+
+    def dataConvert(self):
+        rez = str(self.date[0])
+        for i in range(1, len(self.date)):
+            if len(str(self.date[i])) == 1:
+                rez = rez + '0' +str(self.date[i])
+            else:
+                rez = rez + str(self.date[i])
+        return rez
+
