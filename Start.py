@@ -9,7 +9,7 @@ print('Список возможных команд: \nadd - добавить з
 while i:
     command = input("Введите команду: ")
     if command == 'add':
-        data.data.append(Notes(len(data.data), input("Введите название заметки: ").strip(';'), input("Введите текст заметки: ").strip(';'), 0, 0, 0, 0, 0))
+        data.data.append(Notes(len(data.data), input("Введите название заметки: ").replace(';', ''), input("Введите текст заметки: ").replace(';', ''), 0, 0, 0, 0, 0))
     elif command == 'printall':
         data.sortAlg()
         for j in data.data:
@@ -32,7 +32,7 @@ while i:
         while x:
             try:
                 id = int(input('Введите id заметки для редактирования: '))
-                data.data[id].editNote(input('Введите новый текст: '))
+                data.data[id].editNote(input('Введите новый текст: ').replace(';', ''))
                 x = False
             except:
                 print('Введите целое число, либо такого id не существует!')
